@@ -1,0 +1,57 @@
+<!--Oue23) Change the color on click
+Create a button that utilizes an array of colors and the Math.random method to change the background color
+of the page upon clicking. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backgraound Color Changes</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <button id="button">Press me to chenge</button>
+
+    <script src="./script.js"></script>
+</body>
+</html>
+
+
+_______________________external css
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#button {
+    padding: 16px;
+    font-size: 20px;
+    color: whitesmoke;
+    border-radius: 25px;
+    background-color: black ;
+}
+
+______________________external javaScript
+
+const btn = document.getElementById("button");
+const randomColor = () => {
+    let val = "0123456789ABCDEF"
+    let cons = "#"
+
+    for (let i = 0; i < 6; i++){
+        cons = cons + val[Math.floor (Math.random() * 16)];
+    }
+    return cons;
+};
+// console.log(randomColor());
+
+function changeRandomColor() {
+    document.body.style.backgroundColor = randomColor();
+}
+
+btn.addEventListener("click", changeRandomColor);
+
