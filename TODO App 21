@@ -1,0 +1,83 @@
+<!-- 21. TODO App
+Create a simple to-do app to add TODO items to the list through an input field and a button. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TODO App</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>TODO List</h1>
+    <input type="text" placeholder="Add new item" id="input">
+    <button onclick="addItem()">Add</button>
+    <ul id="list"></ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+____________________________________________ css external
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  input[type="text"] {
+    width: 70%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  button {
+    padding: 0.5rem;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  ___________________________________external javScript
+  
+  let items = [];
+
+function addItem() {
+  const input = document.getElementById("input");
+  const value = input.value.trim();
+  if (value !== "") {
+    items.push(value);
+    input.value = "";
+    renderList();
+  }
+}
+
+function renderList() {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    li.innerText = item;
+    list.appendChild(li);
+  });
+}
