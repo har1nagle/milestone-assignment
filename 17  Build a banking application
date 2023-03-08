@@ -1,0 +1,34 @@
+/**17. Build a banking application
+A banking application needs to manage customer accounts and transactions. The user detail is stored in an
+object with a keys name and balance. Write functions using object methods to update a customer's account
+balance based on a deposit or withdrawal. */
+
+// Define an object to store customer information
+const customer = {
+    name: "Hari Nagle",
+    balance: 1000,
+  };
+  
+  // Function to deposit funds into the customer's account
+  function deposit(amount) {
+    customer.balance += amount;
+    console.log(`Deposit of ${amount} successful. New balance is ${customer.balance}.`);
+  }
+  
+  // Function to withdraw funds from the customer's account
+  function withdraw(amount) {
+    if (amount > customer.balance) {
+      console.log(`Current balance is ${customer.balance}.`);
+    } else {
+      customer.balance -= amount;
+      console.log(`Withdrawal of ${amount} successful. New balance is ${customer.balance}.`);
+    }
+  }
+  
+  deposit(500);
+  withdraw(200); 
+  withdraw(1500);
+  
+  /*Output:  Deposit of 500 successful. New balance is 1500.
+             Withdrawal of 200 successful. New balance is 1300.
+             Current balance is 1300. */
